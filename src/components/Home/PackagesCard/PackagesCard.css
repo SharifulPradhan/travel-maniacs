@@ -1,0 +1,22 @@
+.card-animation:hover {
+  cursor: pointer;
+  animation: card 3s ease -1s infinite alternate;
+}
+
+
+@keyframes card {
+  25% {background-color: #ff7c5b73;}
+  75% {background-color: #ff7c5bbe;}
+  100% {background-color: #ff7c5b;}
+}
+
+.card-image-animation{
+  overflow: hidden;
+  transition: all  0.3s ease 0s;
+}
+
+.card-image-animation:hover{
+  padding: 25px;
+  border-radius: 20px;
+}
+

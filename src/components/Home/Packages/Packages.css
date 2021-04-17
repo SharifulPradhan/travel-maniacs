@@ -1,0 +1,11 @@
+.packages-container {
+  height: 700px;
+  background-image: url('../../../images/packagesbg.png');
+  background-size: cover;
+}
+
+@media (max-width: 576px) {
+  .packages-container {
+    margin-top:1050px;
+  }
+}

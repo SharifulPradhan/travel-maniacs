@@ -1,0 +1,14 @@
+.dashboard-nav{
+  background-image: linear-gradient(180deg, rgba(6,26,58,1) 0%, rgba(6,50,58,1) 50%, rgba(6,60,58,1) 100%);
+  position: fixed;
+}
+.dashboard-nav li{
+  margin-bottom: 2em;
+}
+.dashboard-nav li a{
+  text-decoration: none;
+}
+
+.dashboard-nav li a:hover{
+  font-weight: bolder;
+}

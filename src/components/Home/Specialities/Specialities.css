@@ -1,0 +1,9 @@
+.card-icon img{
+  transform:translateY(-60%);
+  height: 100px;
+  width: 100px;
+  border-radius:50%;
+  background: #fff;
+  text-align: center;
+  box-shadow: 0 15px 20px 0 rgba(0 0 0 / 10%);
+}

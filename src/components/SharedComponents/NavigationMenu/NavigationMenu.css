@@ -1,0 +1,28 @@
+.nav-button-style{
+  color: white;
+  font-weight: 700;
+  background-color: #ff7c5b;
+  padding: 8px 40px;
+  border-radius: 4px;
+  font-size: 17px;
+  line-height: 25px;
+  border: none;
+}
+
+.nav-button-style:hover{
+  color: black;
+  font-weight: 700;
+  background-color: white;
+  padding: 8px 40px;
+  border-radius: 4px;
+  font-size: 17px;
+  line-height: 25px;
+  border: none;
+}
+
+@media (max-width: 576px) {
+  .nav-bg {
+    background-color: rgba(34, 32, 32, 0.699);
+    border-radius:10px;
+  }
+}
