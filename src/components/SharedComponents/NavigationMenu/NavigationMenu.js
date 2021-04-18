@@ -1,13 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import logo from "../../../images/logo.png";
 import { UserContext } from '../../../App';
 import './NavigationMenu.css'
 
+
+
 const NavigationMenu = () => {
-  const [loggedInUser] = useContext(UserContext);
-  console.log(loggedInUser);
+  const [loggedInUser] = React.useContext(UserContext);
 
   return (
     <Navbar collapseOnSelect expand="lg" variant="light" className="container pt-3 justify-content-center sticky">
@@ -22,8 +23,8 @@ const NavigationMenu = () => {
           <Nav.Link as={Link} to="/blogs" className="mr-4 text-white">Blogs</Nav.Link>
           <Nav.Link as={Link} to="/Contacts" className="mr-4 text-white">Contacts</Nav.Link>
           {loggedInUser.isSignIn
-            ? <button as={Link} to="/user-details" className="nav-button-style">{loggedInUser.name}</button>
-            : <button as={Link} to="/login" className="nav-button-style">Login</button>
+            ? <Link to="/user-details"><button className="nav-button-style" style={{fontSize:'12px'}}>{loggedInUser.name}</button></Link>
+            : <Link to="/login"><button className="nav-button-style">Login</button></Link>
           }
         </Nav>
       </Navbar.Collapse>

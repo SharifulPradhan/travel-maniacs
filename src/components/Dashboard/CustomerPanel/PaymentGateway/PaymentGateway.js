@@ -7,10 +7,10 @@ import SplitForm from './SplitForm';
 const stripePromise = loadStripe('pk_test_51IeZW2DunQXenhN5CfifyapLh2Y5HCT4CH5vIBuq2glwEtaU4hJoJPKPpX7FTrv7VCxWIbSNqwRgeYqlzTsjBFLV000zzM8Xgd');
 
 
-const PaymentGateway = ({handleOrder}) => {
+const PaymentGateway = ({handleBooking}) => {
   return (
     <Elements stripe={stripePromise}>
-      <SplitForm handleOrder={handleOrder} />
+      <SplitForm handleBooking={handleBooking} />
     </Elements>
   );
 };

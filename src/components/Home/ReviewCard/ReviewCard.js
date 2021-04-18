@@ -3,7 +3,8 @@ import { Card } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons'
 
-const ReviewCard = () => {
+const ReviewCard = ({reviewData}) => {
+  const {name, jobTitle, review, photo} = reviewData;
   return (
     <Card style={{ width: '17rem', borderRadius:'10px'}} className="ml-2 mt-2 shadow">
       <Card.Body>
@@ -12,10 +13,10 @@ const ReviewCard = () => {
         <FontAwesomeIcon icon={faStar} className="text-coral"/>
         <FontAwesomeIcon icon={faStar} className="text-coral"/>
         <FontAwesomeIcon icon={faStarHalf} className="text-coral"/>
-      <Card.Text className="mt-3">Lorem ipsum dolor sit amet, consectetur adip. Lorem ipsum dolor jimaun areman tareman</Card.Text>
-        <Card.Title>Amy Johnson</Card.Title>
-        <h6 className="text-secondary">CEO, 1MinuteSchools</h6>
-        <img src="https://smartdemowp.com/travio/wp-content/uploads/2021/02/testimonial-2.png" alt=""/>
+      <Card.Text className="mt-3">{review}</Card.Text>
+        <Card.Title>{name}</Card.Title>
+        <h6 className="text-secondary">{jobTitle}</h6>
+        <img src={photo} alt="" style={{height:'80px', width:'80px', borderRadius:'50%'}}/>
       </Card.Body>
     </Card>
   );

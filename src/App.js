@@ -12,9 +12,12 @@ import Book from './components/Dashboard/CustomerPanel/Book/Book';
 import YourBookings from './components/Dashboard/CustomerPanel/YourBookings/YourBookings';
 import GiveUsAReview from './components/Dashboard/CustomerPanel/GiveUsAReview/GiveUsAReview';
 import Bookings from './components/Dashboard/AdminPanel/Bookings/Bookings';
-import AddPackages from './components/Dashboard/AdminPanel/AdPackages/AddPackages';
 import MakeAdmin from './components/Dashboard/AdminPanel/MakeAdmin/MakeAdmin';
 import ManagePackages from './components/Dashboard/AdminPanel/ManagePackages/ManagePackages';
+import AddPackage from './components/Dashboard/AdminPanel/AdPackage/AddPackage';
+import Login from './components/Login/Login/Login';
+import PrivateRoute from './components/Login/PrivateRoute/PrivateRoute';
+import Packages from './components/Home/Packages/Packages';
 
 
 
@@ -29,21 +32,41 @@ function App() {
 
           <Route exact path='/' component={Home} />
 
+          <Route exact path='/packages' component={Packages} />
+
           <Route path='/home' component={Home} />
 
-          <Route path='/book' component={Book} />
+          <Route path='/login'>
+            <Login />
+          </Route>
 
-          <Route path='/your-bookings' component={YourBookings} />
+          <PrivateRoute path='/book/:id'>
+            <Book />
+          </PrivateRoute>
 
-          <Route path='/review' component={GiveUsAReview} />
+          <PrivateRoute path='/your-bookings'>
+            <YourBookings />
+          </PrivateRoute>
 
-          <Route path='/admin/bookings' component={Bookings} />
+          <PrivateRoute path='/review'>
+            <GiveUsAReview />
+          </PrivateRoute>
 
-          <Route path='/admin/add-packages' component={AddPackages} />
+          <PrivateRoute path='/admin/bookings'>
+            <Bookings />
+          </PrivateRoute>
 
-          <Route path='/admin/make-admin' component={MakeAdmin} />
+          <PrivateRoute path='/admin/add-package'>
+            <AddPackage />
+          </PrivateRoute>
 
-          <Route path='/admin/manage-packages' component={ManagePackages} />
+          <PrivateRoute path='/admin/make-admin'>
+            <MakeAdmin />
+          </PrivateRoute>
+
+          <PrivateRoute path='/admin/manage-packages'>
+            <ManagePackages />
+          </PrivateRoute>
 
           <Route path='*' component={NotFound} />
 

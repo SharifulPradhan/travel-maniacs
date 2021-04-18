@@ -1,54 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import DashboardNav from '../../DashboardNav/DashboardNav';
-import BookingsCard from './BookingsCard';
+import { UserContext } from '../../../../App';
+import { Spinner, Table } from 'react-bootstrap';
+import BookingsDetails from './BookingsDetails';
 
 const Bookings = () => {
-  const bookingsInformations = [
-    { img:'https://smartdemowp.com/travio/wp-content/uploads/2021/02/tour-1.jpg',
-      title:'City Tour',
-      price: 190,
-      days: "5 days",
-      description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis quos aliquid molestias ex, minus vitae! Harum, fugit hic corrupti saepe rerum natus quam cupiditate, error deleniti repellat praesentium. Facere, animi.',
-      status:'pending'
-  },
-  { img:'https://smartdemowp.com/travio/wp-content/uploads/2021/02/tour-1.jpg',
-      title:'Night Tour',
-      price: 180,
-      days: "1 Nights",
-      description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis quos aliquid molestias ex, minus vitae! Harum, fugit hic corrupti saepe rerum natus quam cupiditate, error deleniti repellat praesentium. Facere, animi.',
-      status:'confirmed'
-  },
-  { img:'https://smartdemowp.com/travio/wp-content/uploads/2021/02/tour-1.jpg',
-      title:'Night Tour',
-      price: 180,
-      days: "1 Nights",
-      description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis quos aliquid molestias ex, minus vitae! Harum, fugit hic corrupti saepe rerum natus quam cupiditate, error deleniti repellat praesentium. Facere, animi.',
-      status:'confirmed'
-  },
-  { img:'https://smartdemowp.com/travio/wp-content/uploads/2021/02/tour-1.jpg',
-      title:'Night Tour',
-      price: 180,
-      days: "1 Nights",
-      description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis quos aliquid molestias ex, minus vitae! Harum, fugit hic corrupti saepe rerum natus quam cupiditate, error deleniti repellat praesentium. Facere, animi.',
-      status:'confirmed'
-  },
-  { img:'https://smartdemowp.com/travio/wp-content/uploads/2021/02/tour-1.jpg',
-      title:'Night Tour',
-      price: 180,
-      days: "1 Nights",
-      description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis quos aliquid molestias ex, minus vitae! Harum, fugit hic corrupti saepe rerum natus quam cupiditate, error deleniti repellat praesentium. Facere, animi.',
-      status:'confirmed'
-  },
-  { img:'https://smartdemowp.com/travio/wp-content/uploads/2021/02/tour-1.jpg',
-      title:'Night Tour',
-      price: 180,
-      days: "1 Nights",
-      description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis quos aliquid molestias ex, minus vitae! Harum, fugit hic corrupti saepe rerum natus quam cupiditate, error deleniti repellat praesentium. Facere, animi.',
-      status:'confirmed'
-  },
-  ];
+  const [loggedInUser] = React.useContext(UserContext);
+  const [bookings, setBookings] = React.useState([]);
+  const [loading, setLoading] = React.useState(true);
 
+  const onStatusUpdate = (data) => {
+    console.log('You Clicked Me:', data.value);
+  }
+
+  React.useEffect(() => {
+    fetch('http://localhost:4200/bookings')
+      .then(res => res.json())
+      .then(data => {
+        setBookings(data)
+        setLoading(false)
+      })
+  }, [])
 
 
   return (
@@ -60,15 +33,30 @@ const Bookings = () => {
         <div className="dashboard-header text-white">
           <div className="d-flex justify-content-between align-items-center h-100">
             <h1 className="ml-5">Bookings</h1>
-            <button as={Link} to="/user-details" className="button-coral mr-5">Shariful Pradhan Hridoy</button>
+            <button as={Link} to="/user-details" className="button-coral mr-5" style={{ fontSize: '12px' }}>{loggedInUser.name}</button>
           </div>
         </div>
-        <div className="h-100">
-          <div className="d-flex flex-wrap">
-            { 
-              bookingsInformations.map(bookings => <BookingsCard bookings={bookings}></BookingsCard>)
+        <div className="h-100 p-5">
+        {
+              loading
+              ? <div className="text-center d-flex align-items-center justify-content-center h-50"><Spinner animation="grow" variant="danger" /></div>
+              : <Table striped bordered hover>
+                  <thead>
+                    <tr className="text-muted">
+                      <th>Package Name</th>
+                      <th>Price</th>
+                      <th>Customer Name</th>
+                      <th>Payment</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {
+                      bookings.map(booking => <BookingsDetails booking={booking} key={booking._id} onStatusUpdate={onStatusUpdate}></BookingsDetails>)
+                    }
+                  </tbody>
+                </Table>
             }
-          </div>
         </div>
       </div>
     </div>

@@ -6,6 +6,7 @@ import {
   CardCvcElement,
   CardExpiryElement
 } from "@stripe/react-stripe-js";
+import './SplitForm.css'
 
 
 
@@ -14,12 +15,13 @@ const useOptions = () => {
     () => ({
       style: {
         base: {
-          fontSize: "1rem",
+          fontSize: "12px",
           color: "#424770",
           letterSpacing: "0.025em",
           fontFamily: "Source Code Pro, monospace",
+
           "::placeholder": {
-            color: "#aab7c4"
+            color: "#aab7c4",
           }
         },
         invalid: {
@@ -33,7 +35,7 @@ const useOptions = () => {
   return options;
 };
 
-const SplitForm = ({handleOrder}) => {
+const SplitForm = ({handleBooking}) => {
   const stripe = useStripe();
   const elements = useElements();
   const options = useOptions();
@@ -62,7 +64,7 @@ const SplitForm = ({handleOrder}) => {
       console.log('[PaymentMethod]', paymentMethod);
       setPaymentSuccess(paymentMethod.id)
       setPaymentError(null);
-      handleOrder(paymentMethod.id);
+      handleBooking(paymentMethod.id);
     } 
   };
 
@@ -72,7 +74,6 @@ const SplitForm = ({handleOrder}) => {
       <label>
         Card number
         <CardNumberElement 
-          className="form-control"
           options={options}
           onReady={() => {
             console.log("CardNumberElement [ready]");
@@ -92,7 +93,6 @@ const SplitForm = ({handleOrder}) => {
       <label>
         Expiration date
         <CardExpiryElement
-          className="form-control"
           options={options}
           onReady={() => {
             console.log("CardNumberElement [ready]");
@@ -112,7 +112,6 @@ const SplitForm = ({handleOrder}) => {
       <label>
         CVC
         <CardCvcElement
-          className="form-control"
           options={options}
           onReady={() => {
             console.log("CardNumberElement [ready]");
