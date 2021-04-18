@@ -8,7 +8,7 @@ const ManagePackagesDetails = (props) => {
   const [packageDelete, setPackageDelete] = React.useState(false);
 
   const handlePackageDelete = (id) => {
-    fetch(`http://localhost:4200/deletePackage/${id}`, {
+    fetch(`https://travel-maniacs.herokuapp.com/deletePackage/${id}`, {
       method: 'DELETE',
     })
       .then(res => res.json())

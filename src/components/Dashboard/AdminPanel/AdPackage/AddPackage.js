@@ -24,7 +24,7 @@ const AddPackage = () => {
       imageURL: imageURL
     };
     console.log(packageData);
-    fetch('http://localhost:4200/addPackage', {
+    fetch('https://travel-maniacs.herokuapp.com/addPackage', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(packageData)

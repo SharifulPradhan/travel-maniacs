@@ -17,7 +17,7 @@ const GiveUsAReview = () => {
       photo: loggedInUser.photo
     };
     console.log(reviewData);
-    fetch('http://localhost:4200/addReview', {
+    fetch('https://travel-maniacs.herokuapp.com/addReview', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

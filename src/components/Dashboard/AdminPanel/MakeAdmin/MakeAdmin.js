@@ -14,7 +14,7 @@ const MakeAdmin = () => {
       email: data.email,
     };
     console.log(adminData);
-    fetch('http://localhost:4200/addAdmin', {
+    fetch('https://travel-maniacs.herokuapp.com/addAdmin', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(adminData)

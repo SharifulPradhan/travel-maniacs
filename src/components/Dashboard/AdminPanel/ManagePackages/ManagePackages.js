@@ -12,7 +12,7 @@ const ManagePackages = () => {
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
-    fetch('http://localhost:4200/packages')
+    fetch('https://travel-maniacs.herokuapp.com/packages')
       .then(res => res.json())
       .then(data => {
         setPackages(data)

@@ -17,7 +17,7 @@ const Book = () => {
   const { days, title, price } = packageData;
 
   React.useEffect(() => {
-    fetch('http://localhost:4200/package/' + id)
+    fetch('https://travel-maniacs.herokuapp.com/package/' + id)
       .then(res => res.json())
       .then(data => setPackageData(data))
   }, [id])
@@ -32,7 +32,7 @@ const Book = () => {
       orderTime: new Date()
     }
 
-    fetch('http://localhost:4200/addBooking', {
+    fetch('https://travel-maniacs.herokuapp.com/addBooking', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

@@ -12,7 +12,7 @@ const YourBookings = () => {
 
 
   React.useEffect(() => {
-    fetch('http://localhost:4200/bookingsOfCustomer?email=' + loggedInUser.email)
+    fetch('https://travel-maniacs.herokuapp.com/bookingsOfCustomer?email=' + loggedInUser.email)
       .then(res => res.json())
       .then(data => {
         setBookings(data)

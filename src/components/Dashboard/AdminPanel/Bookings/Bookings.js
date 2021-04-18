@@ -15,7 +15,7 @@ const Bookings = () => {
   }
 
   React.useEffect(() => {
-    fetch('http://localhost:4200/bookings')
+    fetch('https://travel-maniacs.herokuapp.com/bookings')
       .then(res => res.json())
       .then(data => {
         setBookings(data)

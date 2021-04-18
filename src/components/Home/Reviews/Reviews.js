@@ -7,7 +7,7 @@ const Reviews = () => {
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(()=> {
-    fetch('http://localhost:4200/reviews')
+    fetch('https://travel-maniacs.herokuapp.com/reviews')
     .then(res => res.json())
     .then(data => {
       setReviews(data)
