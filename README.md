@@ -1,6 +1,6 @@
 # Travel Maniacs
 
-## Client Site (Travel Maniacs)[https://travel-maniacs-1d6fc.web.app/]
+## Client Site [Travel Maniacs](https://travel-maniacs-1d6fc.web.app/)
 
 
 
