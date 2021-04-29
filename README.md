@@ -20,7 +20,7 @@
 
 ### 8. Home Page completely mobile friendly.
 
-### 9. Both client and server site Readme Edited Properly. 2
+### 9. Both client and server site Readme Edited Properly. 
 
 ### 10. Try my level best for make the code cleaner.
 
@@ -29,5 +29,5 @@
 
 
 
-## This Project is Build For Programming Hero Assignment 11
+
 ## Thank you so much visiting my repo.
