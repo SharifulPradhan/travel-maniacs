@@ -42,7 +42,7 @@ const MakeAdmin = () => {
               <div className="row mt-2">
                 <div className="col">
                   <label>Email</label>
-                  <input name="email" defaultValue={loggedInUser.email} type="email" {...register("email")} className="form-control" />
+                  <input name="email" placeholder="Make an admin" type="email" {...register("email")} className="form-control" />
                 </div>
               </div>
               <input variant="success" as="input" type="submit" value='Save' className="row mt-2 mx-auto button-coral" />
