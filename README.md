@@ -16,7 +16,7 @@ Travel Maniacs is a fully responsive travel agency website. Travel Maniacs provi
 * An admin can see all the bookings and able to update the status of the booking in the admin dashboard’s bookings option.
 * An admin also can make a new admin by adding an email in the make an admin option.
 
-## Dependencies
+## Dependencies:
 * JavaScript
 * React
 * Node.js
@@ -25,6 +25,7 @@ Travel Maniacs is a fully responsive travel agency website. Travel Maniacs provi
 * MongoDB
 * Firebase
 
-## What the website looks like
-
+## What the website looks like:
 ![picture alt](https://github.com/shariful-pradhan-hridoy/travel-maniacs/blob/master/src/images/travel-maniacs-ss1.png)
+![picture alt](https://github.com/shariful-pradhan-hridoy/travel-maniacs/blob/master/src/images/travel-maniacs-ss3.png)
+
